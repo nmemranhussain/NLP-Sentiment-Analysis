@@ -30,23 +30,34 @@ Analyze Titanic passenger data with Logistic Regression &amp; Random Forest. Ide
 |Text	| Feature (Independent Variable)	| Text / String	|The full string content of the movie review used for training and inference. This undergoes tokenization and N-gram processing during modeling.|
 
 ### Differences Between Training and Test Data
-- The training data includes the target variable (Survived), allowing us to train and evaluate the model, while the test data lacks this target, so it’s used solely for generating predictions to assess model performance on unseen data.
-- All other feature columns are the same between the training and test datasets.
+The project serves as a technical proof-of-concept for a FastText sentiment analysis pipeline that uses Autotune to transform an underfitting baseline model into an effective classifier with 87.39% accuracy. By training on a perfectly balanced IMDb dataset of 50,000 movie reviews, the model leverages word bi-grams and subword information to successfully distinguish between positive and negative sentiments. The structured workflow demonstrates a complete machine learning lifecycle, from exploratory data analysis and 90/10 data splitting to advanced hyperparameter optimization.  
 
 ## Model Details
-### Architecture  
-- This model card utilizes linear model such as **Logistic Regression**. As an alternative model **Random Forest** is used.  
+### Model Architecture  
+- **Core Algorithm:** The model employs a supervised learning approach designed for efficient text classification.  
+- **Word Representation:** It uses a bag-of-words representation combined with n-gram features to capture the contextual meaning of phrases.  
+- **Subword Information:** The architecture exploits subword information (character n-grams), allowing it to better understand rare words and morphological patterns.
+- **Linear Classifier:** Internally, FastText uses a multinomial logistic regression (or a hierarchical softmax for large datasets) to map text embeddings to the target labels.
+
+### Hyperparameter Optimization (Autotune)
+The most critical aspect of the model's success was the application of Autotune, which dramatically improved performance from 50% to 87.39% accuracy.
+- **Optimization Metric:** The search was guided to maximize the F1 score.
+- **Duration:** The autotuning process was set to run for 600 seconds (10 minutes) to find a near-optimal configuration.
+- **Initial Setup:** The baseline model used standard parameters which proved insufficient, leading it to perform no better than random chance.
 
 ### Evaluation Metrics  
-- AUC (Area Under the ROC Curve): Measures the model's ability to distinguish between positive and negative classes.
+- Accuracy, Precision, Recall and F1 Score
 
-### Final Values of Metrics for All Data using 'logistic regression' model:
+### Final Values of Metrics before and after Hyperparameter Optimization:  
 
-| Dataset     | AUC   | 
-|-------------|-------|
-| Training    | 0.78  | 
-| Validation  | 0.80  |
-| Test        | 0.76  | 
+|Metrics|BaseLine Model|Autotune Model|Improvement|
+|-------|--------------|--------------|-----------|
+|Total Examples|25,000|25,000|-|
+|Accuracy|0.5001|0.8739|+37.38%|
+|Precision|0.5001|0.8739|+37.38%|
+|Recall|0.5001|0.8739|+37.38%|
+|F1 Score|0.5001|0.8739|+37.38%|
+
 
 ### Columns Used as Inputs in the Final Model
 The following columns were used as inputs (features) in the final model:
