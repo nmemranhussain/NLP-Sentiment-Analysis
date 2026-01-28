@@ -5,9 +5,9 @@ Analyze Titanic passenger data with Logistic Regression &amp; Random Forest. Ide
 ## Basic Information
 **Names:** N M Emran Hussain  
 **Email:** nmemranhussain2023@gmail.com  
-**Date:** October 2024  
+**Date:** October 2025  
 **Model Version:** 1.0.0  
-**License:** [MIT License](LICENSE)
+**License:** [Apache License Version 2.0,](LICENSE)
 
 ## Intended Use
 **Purpose:** The model predicts survival on the Titanic dataset using various machine learning algorithms.  
