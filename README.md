@@ -95,11 +95,11 @@ The most critical aspect of the model's success was the application of Autotune,
 
 ### Plots Related to Data or Final Model
  
-![Label Distribution (Train Set)](Label.png) 
+![Label Distribution (Train Set)](Label.jpg) 
 
 **Description**: This bar chart demonstrates that the training dataset is perfectly balanced, showing nearly identical counts of approximately 11,000 samples for both positive and negative sentiment labels.
 
-![Review Length Distribution (Train Set)](review.png) 
+![Review Length Distribution (Train Set)](review.jpg) 
 
 **Description**: This histogram reveals a highly skewed distribution where the vast majority of movie reviews are under 400 words, though a "long tail" of data extends beyond 1,000 words.
 
