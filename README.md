@@ -10,15 +10,15 @@ Analyze Titanic passenger data with Logistic Regression &amp; Random Forest. Ide
 **License:** [Apache License Version 2.0,](LICENSE)
 
 ## Intended Use
-**Purpose:** The model predicts survival on the Titanic dataset using various machine learning algorithms.  
-**Intended Users:** Data Analysts, Data scientists, machine learning enthusiasts, educators.  
-**Out-of-scope Uses:** The model is not intended for production use in any critical applications or real-time decision-making systems.
+**Purpose:** The primary purpose of this project is to develop and evaluate a high-performance Sentiment Analysis Pipeline utilizing the FastText supervised learning library.  
+**Intended Users:** The intended users of this project are Data Scientists, Machine Learning Engineers, and NLP Researchers, hiring managers or technical recruiters looking for an efficient, scalable template for text classification.  
+**Out-of-scope Uses:** This project is not intended for end-consumers seeking a finished application, entities requiring multi-class sentiment detection, or organizations processing highly informal, short-form text, as the current model is a backend tool specifically optimized for binary classification of structured IMDb reviews.  
 
-## Training Data
-**Dataset Name:** Titanic Training Data  
-**Number of Samples:** 891  
-**Features Used:** Passenger class, gender, age, fare, etc.  
-**Data Source:** [kaggle](https://www.kaggle.com/c/titanic/data?select=train.csv)
+## Dataset
+**Dataset Name:** [IMDb Large Movie Review Dataset.]([https://www.kaggle.com/c/titanic/data?select=train.csv](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews))
+**Number of Samples:** The dataset contains a total of 50,000 highly polar movie reviews.The dataset is perfectly balanced, with 25,000 positive and 25,000 negative reviews.    
+**Features Used:** The FastText sentiment analysis pipeline utilizes the raw text content of movie reviews as its primary input feature, paired with binary sentiment labels for classification. To enhance predictive accuracy, the model incorporates engineered features such as word bi-grams to capture contextual sentiment and subword information to better represent rare words or morphological patterns. Furthermore, the project leverages a bag-of-words approach, allowing the model to analyze the presence and frequency of specific terms within the reviews to distinguish between positive and negative sentiments.  
+
 
 ### Splitting the Data for logistic regression model
 The dataset was divided into training and validation data as follows:
