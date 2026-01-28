@@ -50,57 +50,40 @@ The most critical aspect of the model's success was the application of Autotune,
 
 ### Final Values of Metrics before and after Hyperparameter Optimization:  
 
-|Metrics|BaseLine Model|Autotune Model|Improvement|
-|-------|--------------|--------------|-----------|
-|Total Examples|25,000|25,000|-|
-|Accuracy|0.5001|0.8739|+37.38%|
-|Precision|0.5001|0.8739|+37.38%|
-|Recall|0.5001|0.8739|+37.38%|
-|F1 Score|0.5001|0.8739|+37.38%|
+|Metrics|BaseLine Model|Autotune Model|Improvement|Description|
+|-------|--------------|--------------|-----------|-----------|
+|Total Examples|25,000|25,000|-|-|
+|Accuracy|0.5001|0.8739|+37.38%|87.39% of all reviews in the test set were classified correctly.|
+|Precision|0.5001|0.8739|+37.38%|Out of all reviews the model predicted as positive, 87.39% were actually positive.|
+|Recall|0.5001|0.8739|+37.38%|Out of all truly positive reviews, the model correctly identified 87.39%|
+|F1 Score|0.5001|0.8739|+37.38%|This balanced score indicates the model has achieved a strong equilibrium between precision and recall across both classes.|
 
-
-### Columns Used as Inputs in the Final Model
-The following columns were used as inputs (features) in the final model:
-- Pclass
-- Sex
-- Age
-- SibSp
-- Parch
-- Fare
-- Embarked
-
-### Column(s) Used as Target(s) in the Final Model
-- **Target Column:** Survived
-
-### Type of Models
-* **[Logistic Regression Classifier](https://github.com/nmemranhussain/titanic-ml-models/blob/main/Titanic_logistic%20(1).ipynb)**
-* **[Random Forest Classifier](https://github.com/nmemranhussain/titanic-ml-models/blob/main/Titanic_RF.ipynb)**
+### Columns Used as Inputs and Outputs in the Model
+**Model Inputs**
+- **Raw Review Text:** The primary input is the full string content of the IMDb movie review.
+- **Word N-grams:** During training, the model is configured to take word bi-grams (2-word sequences) as input features to better capture contextual sentiment, such as distinguishing "not good" from "good".
+- **Subword Features:** The model breaks down input words into character n-grams, which allows it to handle rare words or spelling variations by looking at the components of the words. 
+- **Hyperparameters (Autotune Input):** During the optimization phase, the model takes a validation file (imdb.valid) and a duration (e.g., 600 seconds) as inputs to automatically tune its internal settings.
 
 ### Software Used to Implement the Model
-- **Software:** Python (with libraries such as Pandas, Scikit-learn, seaborn & matplotlib)
+- **Python:** The primary programming language used to develop the sentiment analysis pipeline.
+- **FastText:** Used for supervised learning, model training, and performance evaluation. It provided the crucial Autotune feature for hyperparameter optimization.
+- **Kaggle datasets:** Utilized to programmatically load and handle the IMDb dataset.
+- **Pandas:** Used during the exploratory data analysis (EDA) phase to load FastText files and calculate basic statistics.
+- **Matplotlib:** Employed to generate visualizations, such as label distribution and review length histograms.
+- **Google Colab:** The environment used for running the Python notebooks and executing the machine learning pipeline.
+
+### Key Tools and Methods
+- ***Unittest:** Python’s built-in testing framework was used to verify data formatting functions and model predictions.
+- **Regex (re):** Used during data cleaning to remove FastText-specific labels from the text for analysis.
+- **TSV (Tab-Separated Values):** The model required a specific data format (__label__<label>\t<text>), necessitating standard file I/O operations to convert raw text into the FastText format.
 
 ### Version of the Modeling Software: 
-- **'pandas'**: '2.2.2',
-- **'scikit-learn'**: '1.4.2',
-- **'seaborn'**: '0.13.2',
-- **'matplotlib'**: '3.8.4**
-
-### Hyperparameters or Other Settings of the Model
-The following hyperparameters were used for the 'logistic regression' model:
-- **Solver:** lbfgs
-- **Maximum Iterations:** 100
-- **Regularization (C):** 1.0
-- **Features used in the model**: ['Pclass', 'Age', 'SibSp', 'Parch', 'Fare', 'Sex_male', 'Embarked_Q', 'Embarked_S']
-- **Target column**: Survived
-- **Model type**: Logistic Regression
-- **Hyperparameters**: Solver = lbfgs, Max iterations = 500, C = 1.0
-- **Software used**: scikit-learn sklearn.linear_model._logistic
-
-The following hyperparameters were used for the 'random forest' as an alternative model:
-- **Columns used as inputs**: ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked'], 
-- **Target column**: 'Survived',
-- **Type of model**: 'Random Forest Classifier',
-- **Software used**: 'scikit-learn',
+- **Python:** Python 3.12.
+- **fasttext:** Version 0.9.3 was installed and utilized for model training and optimization.
+- **numpy:** Version 1.26.4
+- **pybind11:** Version 3.0.1
+- **setuptools:** Version 75.2.0 
 
 ## Quantitative Analysis
 
