@@ -18,29 +18,15 @@ Analyze Titanic passenger data with Logistic Regression &amp; Random Forest. Ide
 **Dataset Name:** [IMDb Large Movie Review Dataset.]([https://www.kaggle.com/c/titanic/data?select=train.csv](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews))
 **Number of Samples:** The dataset contains a total of 50,000 highly polar movie reviews.The dataset is perfectly balanced, with 25,000 positive and 25,000 negative reviews.    
 **Features Used:** The FastText sentiment analysis pipeline utilizes the raw text content of movie reviews as its primary input feature, paired with binary sentiment labels for classification. To enhance predictive accuracy, the model incorporates engineered features such as word bi-grams to capture contextual sentiment and subword information to better represent rare words or morphological patterns. Furthermore, the project leverages a bag-of-words approach, allowing the model to analyze the presence and frequency of specific terms within the reviews to distinguish between positive and negative sentiments.  
-
-
-### Splitting the Data for logistic regression model
-The dataset was divided into training and validation data as follows:
-- **Training Data Split:** 80%
-- **Validation Data Split:** 20%
+**Training Set (Approx. 90%):** 22,500 examples were used for the actual model training.  
+**Validation Set (Approx. 10%):** 2,500 examples were set aside from the original training split to guide the Autotune hyperparameter optimization.  
+**Test Set (50% of total):** 25,000 examples remained strictly for the final model evaluation to ensure unbiased performance metrics.  
 
 ### Data Dictionary
 
 | Column Name     | Modeling Role  | Measurement Level | Description                            |
 |-----------------|----------------|-------------------|----------------------------------------|
-| PassengerId     | Identifier     | Nominal           | Unique ID for each passenger           |
-| Survived        | Target         | Binary            | 1 if the passenger survived, 0 otherwise|
-| Pclass          | Feature        | Ordinal           | Passenger class (1st, 2nd, 3rd)        |
-| Name            | Feature        | Nominal           | Name of the passenger                  |
-| Sex             | Feature        | Nominal           | Gender of the passenger (Male/Female)  |
-| Age             | Feature        | Continuous        | Age of the passenger                   |
-| SibSp           | Feature        | Continuous        | Number of siblings/spouses aboard      |
-| Parch           | Feature        | Continuous        | Number of parents/children aboard      |
-| Ticket          | Feature        | Nominal           | Ticket number                          |
-| Fare            | Feature        | Continuous        | Fare paid by the passenger             |
-| Cabin           | Feature        | Nominal           | Cabin number                           |
-| Embarked        | Feature        | Nominal           | Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton) |
+|Label	| Target (Dependent Variable)|	Nominal (Binary)	|The sentiment classification of the review. In the raw data, it is numeric (0 or 1). In the FastText format, it is converted to __label__negative or __label__positive.|
 
 ## Test Data
 
