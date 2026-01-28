@@ -58,12 +58,18 @@ The most critical aspect of the model's success was the application of Autotune,
 |Recall|0.5001|0.8739|+37.38%|Out of all truly positive reviews, the model correctly identified 87.39%|
 |F1 Score|0.5001|0.8739|+37.38%|This balanced score indicates the model has achieved a strong equilibrium between precision and recall across both classes.|
 
-### Columns Used as Inputs and Outputs in the Model
+### Inputs and Outputs in the Model
 **Model Inputs**
 - **Raw Review Text:** The primary input is the full string content of the IMDb movie review.
 - **Word N-grams:** During training, the model is configured to take word bi-grams (2-word sequences) as input features to better capture contextual sentiment, such as distinguishing "not good" from "good".
 - **Subword Features:** The model breaks down input words into character n-grams, which allows it to handle rare words or spelling variations by looking at the components of the words. 
 - **Hyperparameters (Autotune Input):** During the optimization phase, the model takes a validation file (imdb.valid) and a duration (e.g., 600 seconds) as inputs to automatically tune its internal settings.
+
+**Model Output**
+- **Sentiment Labels:** For each input review, the model outputs a predicted label, either __label__positive or __label__negative.
+- **Confidence Scores:** Along with the label, the model outputs a probability score (ranging from 0 to 1) representing the model's confidence in that specific prediction.
+- **Evaluation Metrics:** When tested against the test dataset, the model outputs a summary report containing Accuracy, Precision, Recall, and F1 Score.
+- **Binary Binary/Internal Vectors:** Internally, the training process outputs a compressed model file (.bin), which contains the learned vector representations of the words and labels.
 
 ### Software Used to Implement the Model
 - **Python:** The primary programming language used to develop the sentiment analysis pipeline.
@@ -74,7 +80,7 @@ The most critical aspect of the model's success was the application of Autotune,
 - **Google Colab:** The environment used for running the Python notebooks and executing the machine learning pipeline.
 
 ### Key Tools and Methods
-- ***Unittest:** Python’s built-in testing framework was used to verify data formatting functions and model predictions.
+- **Unittest:** Python’s built-in testing framework was used to verify data formatting functions and model predictions.
 - **Regex (re):** Used during data cleaning to remove FastText-specific labels from the text for analysis.
 - **TSV (Tab-Separated Values):** The model required a specific data format (__label__<label>\t<text>), necessitating standard file I/O operations to convert raw text into the FastText format.
 
