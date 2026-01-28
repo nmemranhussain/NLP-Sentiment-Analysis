@@ -26,15 +26,8 @@ Analyze Titanic passenger data with Logistic Regression &amp; Random Forest. Ide
 
 | Column Name     | Modeling Role  | Measurement Level | Description                            |
 |-----------------|----------------|-------------------|----------------------------------------|
-|Label	| Target (Dependent Variable)|	Nominal (Binary)	|The sentiment classification of the review. In the raw data, it is numeric (0 or 1). In the FastText format, it is converted to __label__negative or __label__positive.|
-
-## Test Data
-
-### Source of Test Data
-- The Titanic test dataset used in this model is sourced from [Kaggle](https://www.kaggle.com/c/titanic/data?select=gender_submission.csv).
-
-### Number of Rows in Test Data
-- **Number of rows in Test Data:** 418
+|Label	| Target (Dependent Variable)|	Nominal (Binary)	|The sentiment classification of the review. In the raw data, it is numeric (0 or 1). In the FastText format, it is converted to __label__negative or __label__positive.|  
+|Text	| Feature (Independent Variable)	| Text / String	|The full string content of the movie review used for training and inference. This undergoes tokenization and N-gram processing during modeling.|
 
 ### Differences Between Training and Test Data
 - The training data includes the target variable (Survived), allowing us to train and evaluate the model, while the test data lacks this target, so it’s used solely for generating predictions to assess model performance on unseen data.
