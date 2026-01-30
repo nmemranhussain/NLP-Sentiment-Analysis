@@ -1,4 +1,4 @@
-# NLP-Sentiment-Analysis
+# IMDb Sentiment Classification via FastText & Autotune
 
 This project is a technical implementation of a FastText sentiment analysis pipeline designed to classify movie reviews from the IMDb dataset as either positive or negative. The core of the project involves building a supervised machine learning model that leverages N-grams, subword information, and bag-of-words features to capture the nuances of sentiment in text. Initially, a baseline model failed to learn, performing at only 50% accuracy, which prompted the use of Autotune for hyperparameter optimization. By setting an optimization goal based on the F1 Score and conducting a structured 90/10 training-validation split, the final autotuned model achieved a significantly improved and perfectly balanced accuracy of 87.39%.
 
